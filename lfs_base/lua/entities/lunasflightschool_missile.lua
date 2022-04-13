@@ -108,8 +108,8 @@ if SERVER then
 			local Inflictor = self:GetInflictor()
 			local Attacker = self:GetAttacker()
 
-			util.BlastDamage( IsValid( Inflictor ) and Inflictor or Entity(0), IsValid( Attacker ) and Attacker or Entity(0), self:GetPos(),250,100)
-			
+			util.BlastDamage( IsValid( Inflictor ) and Inflictor or Entity(0), IsValid( Attacker ) and Attacker or Entity(0), self:GetPos(),400,500)
+
 			self:Detonate()
 		end
 
@@ -147,7 +147,7 @@ if SERVER then
 					util.Effect( "manhacksparks", effectdata, true, true )
 
 					local dmginfo = DamageInfo()
-						dmginfo:SetDamage( 1000 )
+						dmginfo:SetDamage( 2000 )
 						dmginfo:SetAttacker( IsValid( self:GetAttacker() ) and self:GetAttacker() or self )
 						dmginfo:SetDamageType( DMG_DIRECT )
 						dmginfo:SetInflictor( self )
@@ -166,7 +166,7 @@ if SERVER then
 					util.Effect( "manhacksparks", effectdata, true, true )
 
 					local dmginfo = DamageInfo()
-						dmginfo:SetDamage( 400 )
+						dmginfo:SetDamage( 2000 )
 						dmginfo:SetAttacker( IsValid( self:GetAttacker() ) and self:GetAttacker() or self )
 						dmginfo:SetDamageType( DMG_DIRECT )
 						dmginfo:SetInflictor( self )
