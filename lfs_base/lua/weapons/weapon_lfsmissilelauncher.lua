@@ -114,10 +114,9 @@ function SWEP:Think()
 			if IsValid( v ) then
 				local sub = (v:GetPos() - startpos)
 				local toEnt = sub:GetNormalized()
-				local dist = sub:Length()
 				local Ang = math.acos( math.Clamp( AimForward:Dot( toEnt ) ,-1,1) ) * (180 / math.pi)
-				
-				if Ang < 30 and dist < 7500 and self:CanSee( v ) then
+
+				if Ang < 30 and self:CanSee( v ) then
 					table.insert( Vehicles, v )
 
 					local stuff = WorldToLocal( v:GetPos(), Angle(0,0,0), startpos, self.Owner:EyeAngles() + Angle(90,0,0) )
