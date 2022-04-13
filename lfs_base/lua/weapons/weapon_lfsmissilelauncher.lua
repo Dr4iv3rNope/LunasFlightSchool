@@ -175,7 +175,8 @@ function SWEP:CanSee( entity )
 		endpos = pos,
 		filter = self.Owner
 	} )
-	return (tr.HitPos - pos):Length() < 500
+
+	return (tr.HitPos - pos):Length() < 1000
 end
 
 function SWEP:PrimaryAttack()
