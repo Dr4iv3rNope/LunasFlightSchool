@@ -89,12 +89,12 @@ function SWEP:Think()
 				table.insert( self.FoundVehicles, v )
 			end
 		end
-		
-		for k, v in pairs( ents.FindByClass( "wac_hc*" ) ) do
+
+		for k, v in ipairs( ents.FindByClass( "wac_hc*" ) ) do
 			table.insert( self.FoundVehicles, v )
 		end
-		
-		for k, v in pairs( ents.FindByClass( "wac_pl*" ) ) do
+
+		for k, v in ipairs( ents.FindByClass( "wac_pl*" ) ) do
 			table.insert( self.FoundVehicles, v )
 		end
 	end
@@ -174,14 +174,7 @@ function SWEP:CanSee( entity )
 	local tr = util.TraceLine( {
 		start = self.Owner:GetShootPos(),
 		endpos = pos,
-		filter = function( ent ) 
-			if ent == self.Owner then 
-				return false
-			end
-			
-			return true
-		end
-		
+		filter = self.Owner
 	} )
 	return (tr.HitPos - pos):Length() < 500
 end
